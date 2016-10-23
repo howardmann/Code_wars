@@ -84,3 +84,71 @@ var _triple = _repeatedly(3, function(el){
   return el*3;
 });
 console.log(_triple);
+
+// ........................
+console.log('\nCURRYING..................');
+
+// Currying refers to functions which return other functions
+// Example of a rightToLeft curry vs leftToRight
+
+var leftCurryDiv = function(n){
+  return function(d){
+    return n/d;
+  };
+};
+
+var divide10by = leftCurryDiv(10);
+console.log(divide10by(2));
+
+// Michael Fogus prefers rightCurryDivs
+var rightCurryDiv = function(d){
+  return function(n){
+    return n/d;
+  };
+};
+
+var divideBy10 = rightCurryDiv(10);
+console.log(divide10by(2));
+
+
+
+// Curry functions: function which takes a function as a first paramater and then returns another function which awaits a paramater
+// Currying 1 level deep
+var curry = function(fun){
+  return function(arg){
+    return fun(arg);
+  };
+};
+
+var divBy2 = function(arg){
+  return arg / 2;
+};
+console.log(curry(divBy2)(10));
+
+var multiplyBy2 = function(arg){
+  return arg * 2;
+};
+console.log(curry(multiplyBy2)(10));
+
+// Currying 2 levels deep
+var curry2 = function(fun){
+  return function(secondArg){
+    return function(firstArg){
+      return fun(firstArg, secondArg);
+    }
+  };
+};
+
+var div = function(n, d){
+  return n/ d;
+};
+
+var divideBy2 = curry2(div)(2);
+console.log(divideBy2(10));
+
+var multiply = function(a,b){
+  return a * b;
+};
+
+var multiplyBy2 = curry2(multiply)(2);
+console.log(multiplyBy2(10));
