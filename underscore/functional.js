@@ -165,6 +165,7 @@ for (var i = 10; i > 0; i--){
 
 // Using recursion
 var countDown = function(num){
+  // Stop when: number is zero break out of function
   if (num === 0) { return; }
   console.log(num);
   num -= 1;
@@ -172,3 +173,68 @@ var countDown = function(num){
 };
 
 countDown(10);
+
+// Another factorial example
+var factorial = function(num){
+  // Stop when: Terminate by returning 1 if number is less than 0;
+  if (num === 0) {return 1;}
+  // Take one-step (num *)
+  // Smaller problem (num -1)
+  return num * factorial(num -1);
+};
+console.log(factorial(6));
+
+// INTRODUCTION TO FUNCTIONAL VS. IMPERATIVE AND OBJECT ORIENTED
+// Let's write a function to capitalize a sentence
+
+// Imperative method
+// 1. One specific function that takes a sentence as an argument
+// 2. Splits the sentence into an array and then uses a for loop to iterate through and change the element into an upper case version
+// 3. Finally joins and returns
+var capitalizeSentence = function(sentence){
+  var arr = sentence.split(' ');
+  for (var i = 0; i < arr.length; i++){
+    arr[i] = arr[i][0].toUpperCase() + arr[i].substr(1);
+  }
+  return arr.join(' ');
+};
+console.log(capitalizeSentence('jack johnson'));
+
+// Object-Oriented method
+var Person = {
+  name: 'first last',
+  addName: function(name){
+    this.name = name;
+  },
+  capitalize: function(){
+    var textArr = this.name.split(' ');
+    for (var i = 0; i < textArr.length; i++){
+      textArr[i] = textArr[i][0].toUpperCase() + textArr[i].substr(1);
+    }
+    this.name = textArr.join('');
+  }
+};
+
+var batman = Object.create(Person);
+batman.addName('bruce wayne');
+console.log(batman.name);
+
+// Functional method
+// 1. Create a capitalize function whose purpose is to captialize a word
+// 2. Create a mapSentence function who takes a sentence and a function as arguments. It then splits the sentence into an array of words and maps through each word element in the array calling on the function that was passed in, finally it joins the array and returns the word
+
+var capitalize = function(word){
+  return word[i].toUpperCase() + word.substr(1);
+};
+
+var mapSentence = function(fun, sentence){
+  return sentence.split(' ').map(fun).join(' ');
+};
+
+// Sugar
+// var capitalize = (word) => word[i].toUpperCase() + word.substr(1);
+// var mapSentence = (fun, sentence) => sentence.split(' ').map(fun).join(' ');
+
+console.log(capitalize("howie"));
+console.log(capitalize("mann"));
+console.log(mapSentence(capitalize, 'howie mann'));
