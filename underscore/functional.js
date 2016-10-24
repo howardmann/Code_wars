@@ -47,8 +47,42 @@ console.log(dogs);
 var _dogs = _.filter(dogs, isDog);
 console.log(_dogs);
 
+
+// Custom higher order functions
+
+// Find and replace
+var findAndReplace = function(regex, replacement, text) {
+  return function(text){
+    return text.replace(regex, replacement);
+  };
+};
+
+var changeJS = findAndReplace(/javascript/g, "JavaScript");
+console.log(changeJS('I love javascript'));
+
+var changeRails = findAndReplace(/rails/g, "RORO");
+console.log(changeRails('I love rails'));
+
+
+// Check isEven,
+var mapFilter = function(fun1, fun2){
+  return function(arr){
+    return arr.map(fun1).filter(fun2);
+  };
+};
+
+var isEven = (num) => (num % 2 === 0) ? true : false;
+var double = (num) => num * 2;
+var triple = (num) => num * 3;
+
+var doubleEven = mapFilter(double, isEven);
+console.log(doubleEven([1,2,3,4,5]));
+var tripleEven = mapFilter(triple, isEven);
+console.log(tripleOdd([1,2,3,4,5]));
+
+
 // ........................
-// Principle of functional programming is composability
+// Principle of functional programming is composibility
 
 // Write a simple higher-order function which repeats a value x times
 var repeats = function(times,value){
