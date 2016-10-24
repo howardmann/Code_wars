@@ -152,3 +152,23 @@ var multiply = function(a,b){
 
 var multiplyBy2 = curry2(multiply)(2);
 console.log(multiplyBy2(10));
+
+// ........................
+console.log('\nRECURSION..................');
+
+// Recursive functions are functions that call themselves until they don't (usually due to condition)
+
+// Using a loop
+for (var i = 10; i > 0; i--){
+  console.log(i);
+}
+
+// Using recursion
+var countDown = function(num){
+  if (num === 0) { return; }
+  console.log(num);
+  num -= 1;
+  countDown(num);
+};
+
+countDown(10);
