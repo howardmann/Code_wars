@@ -51,7 +51,7 @@ console.log(_dogs);
 // Custom higher order functions
 
 // Find and replace
-var findAndReplace = function(regex, replacement, text) {
+var findAndReplace = function(regex, replacement) {
   return function(text){
     return text.replace(regex, replacement);
   };
@@ -78,7 +78,7 @@ var triple = (num) => num * 3;
 var doubleEven = mapFilter(double, isEven);
 console.log(doubleEven([1,2,3,4,5]));
 var tripleEven = mapFilter(triple, isEven);
-console.log(tripleOdd([1,2,3,4,5]));
+console.log(tripleEven([1,2,3,4,5]));
 
 
 // ........................
