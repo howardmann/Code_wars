@@ -272,3 +272,28 @@ var mapSentence = function(fun, sentence){
 console.log(capitalize("howie"));
 console.log(capitalize("mann"));
 console.log(mapSentence(capitalize, 'howie mann'));
+
+
+
+// Creating a custom map function
+
+var arr = [1,2,3,4,5];
+var double = function(num){
+  return num * 2;
+};
+
+var newArr = arr.map(double);
+console.log(newArr);
+
+// Let's create our own customMap function
+
+Array.prototype.customMap = function(fun){
+  var result = [];
+  for (var i = 0; i < this.length; i++){
+    result.push(fun(this[i]));
+  }
+  return result;
+};
+
+var newCustomArr = arr.customMap(double);
+console.log(newCustomArr);
