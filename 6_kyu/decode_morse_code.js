@@ -48,3 +48,4 @@ var decodeMorse = function(morseCode) {
 };
 
 console.log(decodeMorse('      .... . -.--   .--- ..- -.. .'));
+console.log(decodeMorse('.. ...   - .... .   .-.. . -. ...   -.-. .- .--.   --- -.'));
