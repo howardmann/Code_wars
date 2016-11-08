@@ -24,11 +24,7 @@ function rank(st, we, n){
   });
 
   // Sort alphabetically then sort by score
-  var scoreArrSort = scoreArr.sort(function(a,b){
-    if (a[1] < b[1]) { return -1; }
-    if (a[1] > b[1]) { return 1; }
-    return 0;
-  }).sort((a,b)=> b[0] - a[0]);
+  var scoreArrSort = scoreArr.sort((a,b) => a[1] < b[1]).sort((a,b)=> b[0] - a[0]);
 
   return scoreArrSort[n-1][1];
 }
