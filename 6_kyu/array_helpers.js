@@ -4,6 +4,7 @@ var cube = (el) => Math.pow(el,3);
 var isEven = (el) => (el % 2 === 0) ? true : false;
 var isOdd = (el) => (el % 2 !== 0) ? true : false;
 
+
 Array.prototype.square = function(){
   return this.map(square);
 };
@@ -29,13 +30,16 @@ Array.prototype.odd = function(){
   return this.filter(isOdd);
 };
 
-var numbers = [1,2,3,4,5];
-console.log(numbers.square());
-console.log(numbers.cube());
-console.log(numbers.sum());
-console.log(numbers.average());
-console.log(numbers.even());
-console.log(numbers.odd());
-var empty = [];
-console.log(empty.sum());
-console.log(empty.average());
+Array.prototype.adder = function(num){
+  return this.map(el => el + num);
+};
+
+Array.prototype.checkNum = function(num){
+  if (this.indexOf(num) === -1) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+module.exports = {Array};
