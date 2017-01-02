@@ -21,5 +21,5 @@ def title_case(title, *minor_words)
 end
 
 title_case('a clash of KINGS', 'a an the of')
-title_case('THE WIND IN THE WILLOWS', 'The In')
+title_case('The WIND IN THE WILLOWS', 'The In')
 title_case('the quick brown fox')
