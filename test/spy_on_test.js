@@ -29,12 +29,3 @@ describe('spyOn(adder)', function(){
   });
 
 });
-
-
-
-// adderSpy(3, 5); // returns 8
-// adderSpy.callCount(); // returns 2
-// adderSpy.wasCalledWith(4); // true
-// adderSpy.wasCalledWith(0); // false
-// adderSpy.returned(8); // true
-// adderSpy.returned(0); // false
