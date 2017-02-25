@@ -17,7 +17,4 @@ describe('rot13', function(){
     expect(rot13('Grfg')).to.equal('Test');
   });
 
-  it('rot13(2!GrFg) should return 2!test', function(){
-    expect(rot13('2!GrFg')).to.equal('2!test');
-  });
 });
